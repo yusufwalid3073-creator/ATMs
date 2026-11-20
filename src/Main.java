@@ -10,7 +10,7 @@ public class Main {
         String pin = "";
         int countTransaction = 0;
         while (!loginState&&loginAttemp<3) {
-            System.out.println("Please,Enter 4-Digit PIN");
+            System.out.println("Please,Enter 4-Digit PIN.");
             pin = sc.next();
             if (pin.equals("1234")) {
                 loginState = true;}
