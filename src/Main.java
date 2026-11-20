@@ -5,18 +5,27 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         double currentBalance = 2500.75;
         boolean state = true;
+        int loginAttemp=0;
         boolean loginState = false;
         String pin = "";
         int countTransaction = 0;
+        while (!loginState&&loginAttemp<3) {
+            System.out.println("Please,Enter 4-Digit PIN");
+            pin = sc.next();
+            if (pin.equals("1234")) {
+                loginState = true;}
+            else {
+                loginAttemp++;
+                System.out.println("Incorrect PIN. Attempts left is: " + (3 - loginAttemp));
+            }
+        }
+        if (!loginState){
+            System.out.println("Your account has been locked.");        }
+        else {
         do {
 
-            while (!loginState) {
-                System.out.println("Please,Enter 4-Digit PIN");
-                pin = sc.next();
-                break;
-            }
 
-            if (pin.equals("1234")) {
+
                 loginState = true;
                 System.out.println("========= ATM =========\n 1.Check Balance \n 2.Dposit \n 3.Withdraw \n 4.Show Account Status \n 5. Exit\n=======================");
                 int input = sc.nextInt();
@@ -71,9 +80,11 @@ public class Main {
                 }
 
 
-            } else System.out.println("Please, Enter The Correct 4-Digit PIN");
+
 
 
         } while (state);
+        }
+
     }
 }
